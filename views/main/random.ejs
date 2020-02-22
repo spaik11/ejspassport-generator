@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/stylesheets/api.css" type="text/css"/>
+        <title>Random Users</title>
+    </head>
+    <body>
+        <header>Random Users</header>
+        <a href="/auth/options">Options</a> | <a href="/logout">Log Out</a>
+        <p>Logged in as: <%= user.name %> </p>
+            <% sortedUsers.forEach(({name: {first, last}, picture: {large}}) => {%> 
+                <div class="randomBox">
+                    <img class="random" src=<%=`${large}`%>>
+                    <p><%= `${first} ${last}` %> </p>
+                </div>
+            <%}) %>
+        <%- include('../partials/footer') %> 
+    </body>
+</html>

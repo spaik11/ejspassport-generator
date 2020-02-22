@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/stylesheets/api.css" type="text/css"/>
+        <title>Project</title>
+    </head>
+    <body id="movieBody">
+        <header>Here is a list of Movies Now Playing in Theatres</header>
+        <a href="/auth/options">Options</a> | <a href="/logout">Log Out</a>
+        <p>Logged in as: <%= user.name %> </p>
+        <% movies.results.forEach(({ title, overview, poster_path }) => {%> 
+                <div class="box">
+                    <div class="left">
+                        <img class="movies" src=<%=`${img}${poster_path}`%>>
+                    </div>
+                    <div class="right">
+                        <h3><%= `${title}` %> </h3>
+                        <p><%= `${overview}` %> </p>
+                    </div>
+                </div>
+                <%}) %>
+        <%- include('../partials/footer') %> 
+    </body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+        
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <link rel="stylesheet" href="/stylesheets/index.css">
+    </head>
+    <body>
+
+<div class="cotn_principal">
+<div class="cont_centrar">
+
+<div class="cont_login">
+<div class="cont_info_log_sign_up">
+    <div class="col_md_login">
+<div class="cont_ba_opcitiy">
+    
+    <h2>LOGIN</h2>  
+<p></p> 
+<button class="btn_login" onclick="cambiar_login()">LOGIN</button>
+</div>
+</div>
+<div class="col_md_sign_up">
+<div class="cont_ba_opcitiy">
+<h2>REGISTER</h2>
+
+
+<p></p>
+
+<button class="btn_sign_up" onclick="cambiar_sign_up()">REGISTER</button>
+</div>
+</div>
+    </div>
+
+
+<div class="cont_back_info">
+    <div class="cont_img_back_grey">
+    <img src="https://www.gtagangwars.de/suite/images/styleLogo-6bd77433ddf78bd8477ea7306e804f677bc925d0.png" alt="" />
+    </div>
+</div>
+<div class="cont_forms" >
+<div class="cont_img_back_">
+    <img src="https://www.gtagangwars.de/suite/images/styleLogo-6bd77433ddf78bd8477ea7306e804f677bc925d0.png" alt="" />
+    </div>
+<form action="/api/users/login" method="POST">
+<div class="cont_form_login">
+    <a href="#" onclick="ocultar_login_sign_up()" ><i class="material-icons"></i></a>
+    <h2>LOGIN</h2>
+    <% if (errors.length > 0) { %> <%= errors %> <% } %>
+<input for="email" id="email" name="email" type="text" placeholder="Email" />
+<input for="password" id="password" name="password" type="text" placeholder="Password" />
+<button type="submit" class="btn_login" onclick="cambiar_login()">LOG IN</button>
+</div>
+</form>
+
+<form action="/api/users/register" method="POST">
+<div class="cont_form_sign_up">
+    <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons"></i></a>
+    <h2>REGISTER</h2>
+    <% if (regErrors.length > 0) { %> <%= regErrors %> <% } %>
+<input for="name" id="name" name="name" type="text" placeholder="Name" />
+<input for="email" id="email" name="email" type="text" placeholder="Email" />
+<input for="password" id="password" name="password" type="text" placeholder="Password" />
+<button type="submit" class="btn_sign_up" onclick="cambiar_sign_up()">REGISTER</button>
+</div>
+</form>
+
+</div>
+
+</div>
+</div>
+</div>
+<script>
+/* ------------------------------------ Click on login and Sign Up to  changue and view the effect
+---------------------------------------
+*/
+
+function cambiar_login() {
+document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_login";  
+document.querySelector('.cont_form_login').style.display = "block";
+document.querySelector('.cont_form_sign_up').style.opacity = "0";               
+
+setTimeout(function(){  document.querySelector('.cont_form_login').style.opacity = "1"; },400);  
+
+setTimeout(function(){    
+document.querySelector('.cont_form_sign_up').style.display = "none";
+},200);  
+}
+
+function cambiar_sign_up(at) {
+document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_sign_up";
+document.querySelector('.cont_form_sign_up').style.display = "block";
+document.querySelector('.cont_form_login').style.opacity = "0";
+
+setTimeout(function(){  document.querySelector('.cont_form_sign_up').style.opacity = "1";
+},100);  
+
+setTimeout(function(){   document.querySelector('.cont_form_login').style.display = "none";
+},400);  
+
+
+}    
+
+
+
+function ocultar_login_sign_up() {
+
+document.querySelector('.cont_forms').className = "cont_forms";  
+document.querySelector('.cont_form_sign_up').style.opacity = "0";               
+document.querySelector('.cont_form_login').style.opacity = "0"; 
+
+setTimeout(function(){
+document.querySelector('.cont_form_sign_up').style.display = "none";
+document.querySelector('.cont_form_login').style.display = "none";
+},500);  
+
+}
+
+
+
+
+</script>
+    </body>
+</html>
