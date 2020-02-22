@@ -55,7 +55,9 @@
 <div class="cont_form_login">
     <a href="#" onclick="ocultar_login_sign_up()" ><i class="material-icons"></i></a>
     <h2>LOGIN</h2>
+    <div>
     <% if (errors.length > 0) { %> <%= errors %> <% } %>
+    </div>
 <input for="email" id="email" name="email" type="text" placeholder="Email" />
 <input for="password" id="password" name="password" type="text" placeholder="Password" />
 <button type="submit" class="btn_login" onclick="cambiar_login()">LOG IN</button>
@@ -66,7 +68,9 @@
 <div class="cont_form_sign_up">
     <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons"></i></a>
     <h2>REGISTER</h2>
+    <div>
     <% if (regErrors.length > 0) { %> <%= regErrors %> <% } %>
+    </div>
 <input for="name" id="name" name="name" type="text" placeholder="Name" />
 <input for="email" id="email" name="email" type="text" placeholder="Email" />
 <input for="password" id="password" name="password" type="text" placeholder="Password" />

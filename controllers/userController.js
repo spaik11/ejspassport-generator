@@ -22,12 +22,12 @@ module.exports = {
 
         if(!errors.isEmpty()){
             console.log(errors)
-            return res.render('main/index', { regErrors: 'All inputs must be filled' })
+            return res.render('main/index', { regErrors: 'All inputs must be filled', errors: 'All inputs must be filled' });
         }
 
         User.findOne({ email: req.body.email }).then(user => {
             if (user) {
-                return res.render('main/index', { regErrors: 'This email already registered' })
+                return res.render('main/index', { regErrors: 'This email already registered' });
             }
             const newUser = new User();
             const salt = bcrypt.genSaltSync(10);

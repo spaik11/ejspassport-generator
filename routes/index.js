@@ -7,9 +7,6 @@ const userController = require('../controllers/userController');
 require('../lib/passport');
 
 router.get('/', userController.home);
-router.get('/auth/options', userController.authOptions);
-router.get('/auth/random', userController.getRandomUsers);
-router.get('/auth/movies', userController.getMovies);
 router.get('/api/users/logout', userController.logout);
 
 router.post('/api/users/register', [
